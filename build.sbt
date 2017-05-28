@@ -1,3 +1,4 @@
+
 import scalatex.ScalatexReadme
 
 scalaVersion := "2.12.2"
@@ -325,3 +326,7 @@ lazy val published = project
   .in(file("target/published"))
   .aggregate(fullCrossBuilt, singleCrossBuilt)
   .settings(dontPublishSettings)
+
+lazy val proxyTest = project.in(file("./proxy-test"))
+  .settings(sharedSettings)
+  .dependsOn(ammRuntime,amm % "test->test")

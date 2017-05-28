@@ -29,7 +29,7 @@ object IvyThing{
     // which coursier does as part of it's progress bar
     val logger = if (!verbose) None
     else {
-      val logger = new coursier.TermDisplay(new PrintWriter(Console.err))
+      val logger = new coursier.TermDisplay(new PrintWriter(Console.err),fallbackMode = true)
       logger.init()
       Some(logger)
     }
@@ -82,6 +82,6 @@ object IvyThing{
               .split('.')
               .take(2)
               .mkString(".")
-  
+
 }
 
